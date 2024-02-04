@@ -5,15 +5,24 @@ const ITEM_FIELDS = `
   heroImage {
     title
     description
-    contentType
-    fileName
-    size
     url
-    width
-    height
   }
   techTags
-  externalUrl
+`;
+
+const ITEM_FIELDS_EXTENDED = `
+  slug
+  title
+  description
+  bodyContent {
+    json
+  }
+  heroImage {
+    title
+    description
+    url
+  }
+  techTags
 `;
 
 const COLLECTION_NAME = 'portfolioItemCollection'
@@ -77,7 +86,7 @@ export async function getAllProjects(isDraftMode: boolean): Promise<any[]> {
   return extractPostEntries(entries);
 }
 
-export async function getPostAndMorePosts(
+export async function getSinglePost(
   slug: string,
   preview: boolean,
 ): Promise<any> {
@@ -87,28 +96,12 @@ export async function getPostAndMorePosts(
       preview ? "true" : "false"
     }, limit: 1) {
         items {
-          ${ ITEM_FIELDS }
+          ${ ITEM_FIELDS_EXTENDED }
         }
       }
     }`,
     preview,
   );
 
-  const entries = await fetchGraphQL(
-    `query {
-      ${ COLLECTION_NAME }(where: { slug_not_in: "${slug}" }, order: date_DESC, preview: ${
-      preview ? "true" : "false"
-    }, limit: 2) {
-        items {
-          ${ ITEM_FIELDS }
-        }
-      }
-    }`,
-    preview,
-  );
-
-  return {
-    post: extractPost(singleEntry),
-    morePosts: extractPostEntries(entries),
-  };
+  return { post: extractPost(singleEntry) }
 }

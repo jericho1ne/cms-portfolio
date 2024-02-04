@@ -18,8 +18,8 @@ export default function CoverImage({
     <ContentfulImage
       alt={`Cover Image for ${title}`}
       priority
-      width={2000}
-      height={1000}
+      width={800}
+      height={100}
       className={cn("shadow-small", {
         "hover:shadow-medium transition-shadow duration-200": slug,
       })}
@@ -28,7 +28,7 @@ export default function CoverImage({
   );
 
   return (
-    <div className="sm:mx-0">
+    <div className="flex items-center border">
       {slug ? (
         <Link href={`/p/${slug}`} aria-label={title}>
           {image}
