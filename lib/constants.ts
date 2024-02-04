@@ -1,3 +1,2 @@
-export const EXAMPLE_PATH = "cms-contentful";
-export const CMS_NAME = "Contentful";
-export const CMS_URL = "https://www.contentful.com";
+export const GITHUB_URL = "https://github.com/jericho1ne/";
+export const REPO_URL = "https://github.com/jericho1ne/";

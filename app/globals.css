@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-red-700: theme('colors.red.700');
+  /* --tw-color-gray-200: theme('colors.gray.200');
+  --tw-color-gray-300: theme('colors.gray.300');
+  --tw-color-gray-400: theme('colors.gray.400');
+  --tw-color-gray-500: theme('colors.gray.500');
+  --tw-color-gray-600: theme('colors.gray.600');
+  --tw-color-gray-700: theme('colors.gray.700');
+  --tw-color-gray-800: theme('colors.gray.800');
+  --tw-color-gray-900: theme('colors.gray.900');
+  --tw-color-gray-950: theme('colors.gray.950'); */
+}
+
+.underline {
+  text-decoration-color: --color-red-700;
+  text-decoration: --color-red-700;
+  
+  &:hover {
+    text-decoration-color: blue;
+    text-decoration: blue;
+  }
+}

@@ -1,32 +1,22 @@
-const POST_GRAPHQL_FIELDS = `
+const ITEM_FIELDS = `
   slug
   title
-  coverImage {
+  description
+  heroImage {
+    title
+    description
+    contentType
+    fileName
+    size
     url
+    width
+    height
   }
-  date
-  author {
-    name
-    picture {
-      url
-    }
-  }
-  excerpt
-  content {
-    json
-    links {
-      assets {
-        block {
-          sys {
-            id
-          }
-          url
-          description
-        }
-      }
-    }
-  }
+  techTags
+  externalUrl
 `;
+
+const COLLECTION_NAME = 'portfolioItemCollection'
 
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
   return fetch(
@@ -48,40 +38,42 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
 }
 
 function extractPost(fetchResponse: any): any {
-  return fetchResponse?.data?.postCollection?.items?.[0];
+  return fetchResponse?.data?.portfolioItemCollection?.items?.[0];
 }
 
 function extractPostEntries(fetchResponse: any): any[] {
-  return fetchResponse?.data?.postCollection?.items;
+  return fetchResponse?.data?.portfolioItemCollection?.items;
 }
 
 export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
   const entry = await fetchGraphQL(
     `query {
-      postCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
+      ${ COLLECTION_NAME }(where: { slug: "${ slug }" }, preview: true, limit: 1) {
         items {
-          ${POST_GRAPHQL_FIELDS}
+          ${ ITEM_FIELDS }
         }
       }
     }`,
     true,
-  );
+  )
+
   return extractPost(entry);
 }
 
-export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
+export async function getAllProjects(isDraftMode: boolean): Promise<any[]> {
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${
+      ${ COLLECTION_NAME }(where: { slug_exists: true }, order: date_DESC, preview: ${
         isDraftMode ? "true" : "false"
       }) {
         items {
-          ${POST_GRAPHQL_FIELDS}
+          ${ ITEM_FIELDS }
         }
       }
     }`,
     isDraftMode,
   );
+
   return extractPostEntries(entries);
 }
 
@@ -89,32 +81,34 @@ export async function getPostAndMorePosts(
   slug: string,
   preview: boolean,
 ): Promise<any> {
-  const entry = await fetchGraphQL(
+  const singleEntry = await fetchGraphQL(
     `query {
-      postCollection(where: { slug: "${slug}" }, preview: ${
+      ${ COLLECTION_NAME }(where: { slug: "${slug}" }, preview: ${
       preview ? "true" : "false"
     }, limit: 1) {
         items {
-          ${POST_GRAPHQL_FIELDS}
+          ${ ITEM_FIELDS }
         }
       }
     }`,
     preview,
   );
+
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, preview: ${
+      ${ COLLECTION_NAME }(where: { slug_not_in: "${slug}" }, order: date_DESC, preview: ${
       preview ? "true" : "false"
     }, limit: 2) {
         items {
-          ${POST_GRAPHQL_FIELDS}
+          ${ ITEM_FIELDS }
         }
       }
     }`,
     preview,
   );
+
   return {
-    post: extractPost(entry),
+    post: extractPost(singleEntry),
     morePosts: extractPostEntries(entries),
   };
 }

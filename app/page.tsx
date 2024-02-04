@@ -4,57 +4,67 @@ import { draftMode } from "next/headers";
 import Date from "./date";
 import CoverImage from "./cover-image";
 import Avatar from "./avatar";
-import MoreStories from "./more-stories";
+import MoreProjects from "./more-projects";
 
-import { getAllPosts } from "@/lib/api";
-import { CMS_NAME, CMS_URL } from "@/lib/constants";
+import { getAllProjects } from "@/lib/api";
+import { REPO_URL } from "@/lib/constants";
 
 function Intro() {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
+      <h1 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-8">
+        Mihai Peteu
       </h1>
       <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{" "}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Next.js
-        </a>{" "}
-        and{" "}
-        <a
-          href={CMS_URL}
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          {CMS_NAME}
-        </a>
-        .
+        Front end software engineer, cyclist, coffee enthusiast.
       </h2>
+      <div className="p-2 flex flex-row lg:flex-row items-center">
+        <div className="flex flex-col md:pl-2">
+          <a
+            href="https://github.com/mihai-peteu?tab=overview&from=2024-01-01&to=2024-01-31"
+            className="mx-3 items-center rounded-xl bg-slate-500 hover:bg-slate-400 text-white 
+            font-bold tracking-tighter
+            py-3 px-12 lg:px-8 duration-400 transition-colors"
+          >
+            Work Contributions
+          </a>
+        </div>
+        <div className="flex flex-col md:pl-2">
+          <a
+            href="https://github.com/jericho1ne"
+            className="mx-3 items-center rounded-xl bg-slate-500 hover:bg-slate-400 text-white 
+            font-bold tracking-tighter
+            py-3 px-12 lg:px-8 duration-400 transition-colors"
+          >
+            Personal
+          </a>
+        </div>
+      </div>
     </section>
   );
 }
 
-function HeroPost({
+function HeroProject({
   title,
-  coverImage,
+  heroImage,
   date,
-  excerpt,
+  description,
   author,
+  tags,
   slug,
 }: {
   title: string;
-  coverImage: any;
+  heroImage: any;
   date: string;
-  excerpt: string;
+  description: string;
   author: any;
+  tags: string[];
   slug: string;
 }) {
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
+        <CoverImage title={title} slug={slug} url={heroImage.url} />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
@@ -68,7 +78,7 @@ function HeroPost({
           </div>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+          <p className="text-lg leading-relaxed mb-4">{description}</p>
           {author && <Avatar name={author.name} picture={author.picture} />}
         </div>
       </div>
@@ -78,24 +88,26 @@ function HeroPost({
 
 export default async function Page() {
   const { isEnabled } = draftMode();
-  const allPosts = await getAllPosts(isEnabled);
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+  const allProjects = await getAllProjects(isEnabled);
+  const hero = null;                  // allProjects[0];
+  const moreProjects = allProjects;   // allProjects.slice(1);
 
   return (
     <div className="container mx-auto px-5">
+      
       <Intro />
-      {heroPost && (
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
+      
+      {/* {hero && (
+        <HeroProject
+          slug={hero.slug}
+          title={hero.title}
+          description={hero.description}
+          heroImage={hero.heroImage}
         />
-      )}
-      <MoreStories morePosts={morePosts} />
+      )} */}
+      
+      <MoreProjects items={moreProjects} />
+      
     </div>
   );
 }
