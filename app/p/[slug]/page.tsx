@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { draftMode } from "next/headers";
+// import { draftMode } from "next/headers";
 
 import CoverImage from "../../cover-image";
 
@@ -7,7 +7,7 @@ import { Markdown } from "@/lib/markdown";
 import { getAllProjects, getSinglePost } from "@/lib/api";
 
 export async function generateStaticParams() {
-  const allPosts = await getAllProjects(false);
+  const allPosts = await getAllProjects(true);
 
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -19,8 +19,8 @@ export default async function PostPage({
 }: {
   params: { slug: string };
 }) {
-  const { isEnabled } = draftMode();
-  const { post } = await getSinglePost(params.slug, isEnabled);
+  // const { isEnabled } = draftMode();
+  const { post } = await getSinglePost(params.slug, false);
 
   return (
     <div className="container mx-auto px-5">

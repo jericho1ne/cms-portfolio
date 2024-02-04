@@ -69,7 +69,7 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
   return extractPost(entry);
 }
 
-export async function getAllProjects(isDraftMode: boolean): Promise<any[]> {
+export async function getAllProjects(isDraftMode: boolean = false): Promise<any[]> {
   const entries = await fetchGraphQL(
     `query {
       ${ COLLECTION_NAME }(where: { slug_exists: true }, order: date_DESC, preview: ${
@@ -88,7 +88,7 @@ export async function getAllProjects(isDraftMode: boolean): Promise<any[]> {
 
 export async function getSinglePost(
   slug: string,
-  preview: boolean,
+  preview: boolean = false,
 ): Promise<any> {
   const singleEntry = await fetchGraphQL(
     `query {
