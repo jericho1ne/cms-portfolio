@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { draftMode } from "next/headers";
 
-import Date from "./date";
 import CoverImage from "./cover-image";
 import Avatar from "./avatar";
 import MoreProjects from "./more-projects";
@@ -19,13 +18,13 @@ function Intro() {
       <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
         Front end software engineer, cyclist, coffee enthusiast.
       </h2>
-      <div className="p-2 flex flex-row lg:flex-row items-center">
+      <div className="p-2 flex flex-row lg:flex-row gap-x-2 items-center">
         <div className="flex flex-col md:pl-2">
           <a
             href={LINKEDIN_URL}
-            className="items-center rounded-xl bg-slate-800 hover:bg-blue-700 text-white 
+            className="items-center rounded-md bg-slate-800 hover:bg-blue-700 text-white 
             font-bold tracking-tighter
-            py-3 px-12 lg:px-8 duration-500 transition-colors ease-in-ou"
+            py-2 px-4 lg:px-3 duration-500 transition-colors ease-in-out"
           >
             LinkedIn
           </a>
@@ -33,9 +32,9 @@ function Intro() {
         <div className="flex flex-col md:pl-2">
           <a
             href={GITHUB_URL}
-            className="items-center rounded-xl bg-slate-800 hover:bg-blue-700 text-white 
+            className="items-center rounded-md bg-slate-800 hover:bg-blue-700 text-white 
             font-bold tracking-tighter
-            py-3 px-12 lg:px-8 duration-500 transition-colors ease-in-out"
+            py-2 px-4 lg:px-3 duration-500 transition-colors ease-in-out"
           >
             Github
           </a>
@@ -74,9 +73,6 @@ function HeroProject({
               {title}
             </Link>
           </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <Date dateString={date} />
-          </div>
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{description}</p>

@@ -24,7 +24,7 @@ export default async function PostPage({
 
   return (
     <div className="container mx-auto px-5">
-      <h2 className="text-xl md:text-xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
+      <h2 className="text-xl md:text-xl font-bold tracking-tight md:tracking-tighter leading-tight mt-8 mb-8">
         <Link href="/" className="bg-slate-100 p-2 underline font-bold tracking-tighter">
           Home
         </Link>

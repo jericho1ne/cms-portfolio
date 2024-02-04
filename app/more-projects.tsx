@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Avatar from "./avatar";
-import DateComponent from "./date";
 import CoverImage from "./cover-image";
 
 function ProjectPreview({
@@ -29,9 +28,6 @@ function ProjectPreview({
             {title}
           </Link>
         </h3>
-        <div className="text-lg mb-1">
-          <DateComponent dateString={date} />
-        </div>
         <p className="text-md">{description}</p>
         {author && <Avatar name={author.name} picture={author.picture} />}
       </div>
@@ -46,9 +42,9 @@ export default function MoreProjects({ items }: { items: any[] }) {
         Recent Projects
       </h3> */}
       <div className="grid grid-cols-1 md:grid-cols-2 mb-16
-        sm:gap-x-8 sm:gap-y-8
-        md:gap-x-16 md:gap-y-16
-        lg:gap-x-20 lg:gap-y-20 
+        gap-x-6 gap-y-8
+        md:gap-x-12 md:gap-y-12
+        lg:gap-x-16 lg:gap-y-16 
       ">
         {items.map((item) => (
           <ProjectPreview
