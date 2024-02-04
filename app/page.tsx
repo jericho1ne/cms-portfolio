@@ -7,7 +7,7 @@ import Avatar from "./avatar";
 import MoreProjects from "./more-projects";
 
 import { getAllProjects } from "@/lib/api";
-import { REPO_URL } from "@/lib/constants";
+import { GITHUB_URL, LINKEDIN_URL } from "@/lib/constants";
 
 function Intro() {
   return (
@@ -21,22 +21,22 @@ function Intro() {
       <div className="p-2 flex flex-row lg:flex-row items-center">
         <div className="flex flex-col md:pl-2">
           <a
-            href="https://github.com/mihai-peteu?tab=overview&from=2024-01-01&to=2024-01-31"
-            className="mx-3 items-center rounded-xl bg-slate-500 hover:bg-slate-400 text-white 
+            href={LINKEDIN_URL}
+            className="items-center rounded-xl bg-slate-800 hover:bg-blue-700 text-white 
             font-bold tracking-tighter
-            py-3 px-12 lg:px-8 duration-400 transition-colors"
+            py-3 px-12 lg:px-8 duration-500 transition-colors ease-in-ou"
           >
-            Work Contributions
+            LinkedIn
           </a>
         </div>
         <div className="flex flex-col md:pl-2">
           <a
-            href="https://github.com/jericho1ne"
-            className="mx-3 items-center rounded-xl bg-slate-500 hover:bg-slate-400 text-white 
+            href={GITHUB_URL}
+            className="items-center rounded-xl bg-slate-800 hover:bg-blue-700 text-white 
             font-bold tracking-tighter
-            py-3 px-12 lg:px-8 duration-400 transition-colors"
+            py-3 px-12 lg:px-8 duration-500 transition-colors ease-in-out"
           >
-            Personal
+            Github
           </a>
         </div>
       </div>

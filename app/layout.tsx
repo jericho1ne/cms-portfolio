@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { REPO_URL } from "@/lib/constants";
 
 export const metadata = {
   title: `Mihai Peteu – Los Angeles-based Software Engineer`,
@@ -18,7 +19,7 @@ function Footer() {
       <div className="container mx-auto px-5">
         <h3 className="text-xl lg:text-xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
           This project's <a
-            href="{REPO_URL}"
+            href={REPO_URL}
             className="bg-slate-100 p-2 underline duration-400 transition-all"
           >github repository</a>.
         </h3>
