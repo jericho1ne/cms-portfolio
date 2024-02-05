@@ -10,14 +10,16 @@ import { GITHUB_URL, LINKEDIN_URL } from "@/lib/constants";
 
 function Intro() {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
+    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-8 md:mb-12">
     
-      <h1 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-8">
-        Mihai Peteu
-      </h1>
-      <h2 className="text-center md:text-left text-md p-4 md:pl-8">
-        Front end software engineer, cyclist, coffee enthusiast.
-      </h2>
+      <div className="flex flex-col pr-4">
+        <h1 className="text-center md:text-left text-3xl md:text-4xl font-bold tracking-tighter leading-tight">
+          Mihai Peteu
+        </h1>
+        <h2 className="text-center md:text-left text-md pt-1">
+          Front end software engineer, cyclist, coffee enthusiast.
+        </h2>
+      </div>
       <div className="p-2 flex flex-row lg:flex-row gap-x-2 items-center">
         <div className="flex flex-col md:pl-2">
           <Link
@@ -55,7 +57,6 @@ function HeroProject({
   heroImage,
   date,
   description,
-  author,
   tags,
   slug,
 }: {
@@ -63,7 +64,6 @@ function HeroProject({
   heroImage: any;
   date: string;
   description: string;
-  author: any;
   tags: string[];
   slug: string;
 }) {

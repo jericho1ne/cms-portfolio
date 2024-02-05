@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Avatar from "./avatar";
 import CoverImage from "./cover-image";
 
 function ProjectPreview({
@@ -7,14 +6,12 @@ function ProjectPreview({
   heroImage,
   date,
   description,
-  author,
   slug,
 }: {
   title: string;
   heroImage: any;
   date: string;
   description: string;
-  author: any;
   slug: string;
 }) {
   return (
@@ -51,7 +48,6 @@ export default function MoreProjects({ items }: { items: any[] }) {
             title={item.title}
             heroImage={item.heroImage}
             date={item.date}
-            author={item.author}
             slug={item.slug}
             description={item.description}
           />
