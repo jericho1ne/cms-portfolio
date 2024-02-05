@@ -24,12 +24,11 @@ function ProjectPreview({
       </div>
       <div className="px-6 py-8">
         <h3 className="text-2xl font-bold tracking-tighter mb-2 leading-snug">
-          <Link href={`/posts/${slug}`} className="hover:underline">
+          <Link href={`/p/${slug}`} className="hover:underline cursor-pointer">
             {title}
           </Link>
         </h3>
         <p className="text-md">{description}</p>
-        {author && <Avatar name={author.name} picture={author.picture} />}
       </div>
     </div>
   );

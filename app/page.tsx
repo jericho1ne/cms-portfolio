@@ -15,7 +15,7 @@ function Intro() {
       <h1 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-8">
         Mihai Peteu
       </h1>
-      <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
+      <h2 className="text-center md:text-left text-md p-4 md:pl-8">
         Front end software engineer, cyclist, coffee enthusiast.
       </h2>
       <div className="p-2 flex flex-row lg:flex-row gap-x-2 items-center">
@@ -23,8 +23,9 @@ function Intro() {
           <a
             href={LINKEDIN_URL}
             className="items-center rounded-md bg-slate-800 hover:bg-blue-700 text-white 
-            font-bold tracking-tighter
-            py-2 px-4 lg:px-3 duration-500 transition-colors ease-in-out"
+            font-bold tracking-tighter shadow-black hover:drop-shadow-sm
+            transform hover:-translate-y-0.5 
+            py-2 px-4 lg:px-3 duration-400 transition ease-out"
           >
             LinkedIn
           </a>
@@ -33,8 +34,9 @@ function Intro() {
           <a
             href={GITHUB_URL}
             className="items-center rounded-md bg-slate-800 hover:bg-blue-700 text-white 
-            font-bold tracking-tighter
-            py-2 px-4 lg:px-3 duration-500 transition-colors ease-in-out"
+            font-bold tracking-tighter shadow-black hover:drop-shadow-sm
+            transform hover:-translate-y-0.5 
+            py-2 px-4 lg:px-3 duration-400 transition ease-out"
           >
             Github
           </a>
@@ -64,19 +66,15 @@ function HeroProject({
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage title={title} slug={slug} url={heroImage.url} />
+        <CoverImage title={title} slug={slug} url={heroImage.url}  />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-            <Link href={`/posts/${slug}`} className="hover:underline">
+            <Link href={`/p/${slug}`} className="hover:underline" style={{cursor: 'pointer'}}>
               {title}
             </Link>
           </h3>
-        </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{description}</p>
-          {author && <Avatar name={author.name} picture={author.picture} />}
         </div>
       </div>
     </section>

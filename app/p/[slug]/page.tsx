@@ -4,13 +4,13 @@ import { draftMode } from "next/headers";
 import CoverImage from "../../cover-image";
 
 import { Markdown } from "@/lib/markdown";
-import { getAllProjects, getSinglePost } from "@/lib/api";
+import { getAllProjects, getSingleProject } from "@/lib/api";
 
 export async function generateStaticParams() {
-  const allPosts = await getAllProjects(true);
+  const projects = await getAllProjects(true);
 
-  return allPosts.map((post) => ({
-    slug: post.slug,
+  return projects.map((item) => ({
+    slug: item.slug,
   }));
 }
 
@@ -20,7 +20,7 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const { isEnabled } = draftMode();
-  const { post } = await getSinglePost(params.slug, isEnabled);
+  const { post } = await getSingleProject(params.slug, isEnabled);
 
   return (
     <div className="container mx-auto px-5">
@@ -33,20 +33,24 @@ export default async function PostPage({
         <h1 className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tighter leading-tight md:leading-none mb-4 md:mb-8 md:text-left">
           {post.title}
         </h1>
-       
-        {/* Project Description */}
-        <div className="mx-auto mb-4 md:mb-8">
-          <div className="prose">
-            { post.bodyContent && <Markdown content={post.bodyContent} /> }
-          </div>
-        </div>
+        
         {/* Technology stack */}
         <div className="mb-4 md:mb-8 sm:mx-0">
-          {post.techTags.map((tag: string) => (
-            <span className="bg-indigo-100 text-center justify-center text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300 mr-2">
+          {post.techTags.map((tag: string, key: number) => (
+            <span 
+              key={key}
+              className="bg-indigo-100 text-center justify-center text-grey-20 text-xs font-medium px-4 py-2 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300 mr-2"
+            >
             { tag }
           </span>
           ))}
+        </div>
+       
+        {/* Project Description */}
+        <div className="mx-auto mb-4 md:mb-8">
+          <div className="prose tracking-tight text-sm leading-6">
+            { post.bodyContent && <Markdown content={post.bodyContent} /> }
+          </div>
         </div>
         {/* Hero image */}
         <div className="mb-8 md:mb-16 sm:mx-0">

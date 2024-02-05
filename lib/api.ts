@@ -50,11 +50,11 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
   ).then((response) => response.json());
 }
 
-function extractPost(fetchResponse: any): any {
+function extractProject(fetchResponse: any): any {
   return fetchResponse?.data?.portfolioItemCollection?.items?.[0];
 }
 
-function extractPostEntries(fetchResponse: any): any[] {
+function extractProjectEntries(fetchResponse: any): any[] {
   return fetchResponse?.data?.portfolioItemCollection?.items;
 }
 
@@ -70,7 +70,7 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
     true,
   )
 
-  return extractPost(entry);
+  return extractProject(entry);
 }
 
 export async function getAllProjects(isDraftMode: boolean = false): Promise<any[]> {
@@ -87,10 +87,10 @@ export async function getAllProjects(isDraftMode: boolean = false): Promise<any[
     isDraftMode,
   );
 
-  return extractPostEntries(entries);
+  return extractProjectEntries(entries);
 }
 
-export async function getSinglePost(
+export async function getSingleProject(
   slug: string,
   preview: boolean = false,
 ): Promise<any> {
@@ -107,5 +107,5 @@ export async function getSinglePost(
     preview,
   );
 
-  return { post: extractPost(singleEntry) }
+  return { post: extractProject(singleEntry) }
 }
