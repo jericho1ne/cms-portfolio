@@ -1,4 +1,4 @@
-// import { draftMode } from "next/headers";
+import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 import { getPreviewPostBySlug } from "../../../lib/api";
 
@@ -17,6 +17,6 @@ export async function GET(request: Request) {
     return new Response("Invalid slug", { status: 401 });
   }
 
-  // draftMode().enable();
+  draftMode().enable();
   redirect(`/posts/${post.slug}`);
 }

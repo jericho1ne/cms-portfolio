@@ -19,7 +19,7 @@ function ProjectPreview({
 }) {
   return (
     <div className="bg-slate-50 drop-shadow-lg rounded-md overflow-clip divide-y">
-      <div className="">
+      <div className="cursor-pointer">
         <CoverImage title={title} slug={slug} url={heroImage.url} />
       </div>
       <div className="px-6 py-8">

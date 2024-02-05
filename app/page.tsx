@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import { draftMode } from "next/headers";
+import { draftMode } from "next/headers";
 
 import CoverImage from "./cover-image";
 import Avatar from "./avatar";
@@ -84,8 +84,8 @@ function HeroProject({
 }
 
 export default async function Page() {
-  // const { isEnabled } = draftMode();
-  const allProjects = await getAllProjects();
+  const { isEnabled } = draftMode();
+  const allProjects = await getAllProjects(isEnabled);
   const hero = null;                  // allProjects[0];
   const moreProjects = allProjects;   // allProjects.slice(1);
 

@@ -22,6 +22,11 @@ const ITEM_FIELDS_EXTENDED = `
     description
     url
   }
+  demoVideo {
+    title
+    description
+    url
+  }
   techTags
 `;
 
@@ -41,7 +46,6 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
         }`,
       },
       body: JSON.stringify({ query }),
-      next: { tags: ["posts"] },
     },
   ).then((response) => response.json());
 }

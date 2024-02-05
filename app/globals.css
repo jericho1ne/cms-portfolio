@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a {
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 99;
+  transition: opacity 0.3s ease-out;
+}
+
+a:hover {
+  opacity: 0.67;
+}
