@@ -20,7 +20,7 @@ export default function CoverImage({
       priority
       width={1200}
       height={800}
-      className={cn("shadow-small", {
+      className={cn("shadow-small rounded-full", {
         "hover:shadow-medium transition-shadow duration-200": slug,
       })}
       src={url}
@@ -28,7 +28,7 @@ export default function CoverImage({
   );
 
   return (
-    <div className="flex items-center border">
+    <div className="flex items-center overflow-clip  rounded-md">
       {slug ? (
         <Link href={`/p/${slug}`} aria-label={title}>
           {image}

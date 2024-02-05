@@ -1,5 +1,5 @@
 ### Portfolio
-A clone of the [Next.js + Contentful boiler plate](https://github.com/vercel/next.js/tree/canary/examples/cms-contentful), hosted on Netlify.
+A clone of the [Next.js + Contentful boiler plate](https://github.com/vercel/next.js/tree/canary/examples/cms-contentful), hosted on Vercel.
 
 
 ### Why
@@ -39,5 +39,6 @@ Contentful `portfolioItem` schema
 
 
 ### What's next
+- SEO stuff: How to edit robots.txt, how to set opengraph image
 - Video embeds as part of Rich Text field
 - Clean up the mess that tailwind left behind.

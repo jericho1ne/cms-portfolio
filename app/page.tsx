@@ -23,6 +23,7 @@ function Intro() {
           <Link
             href={LINKEDIN_URL}
             className="items-center rounded-md text-white
+            bg-indigo-100 text-indigo-900
             dark:bg-indigo-900 dark:text-indigo-100 
             font-bold tracking-tighter shadow-black hover:drop-shadow-sm
             transform hover:-translate-y-0.5 
@@ -35,6 +36,7 @@ function Intro() {
           <Link
             href={GITHUB_URL}
             className="items-center rounded-md text-white
+            bg-indigo-100 text-indigo-900
             dark:bg-indigo-900 dark:text-indigo-100 
             font-bold tracking-tighter shadow-black hover:drop-shadow-sm
             transform hover:-translate-y-0.5 
