@@ -14,6 +14,8 @@ const ITEM_FIELDS_EXTENDED = `
   slug
   title
   description
+  externalUrl
+  techTags
   bodyContent {
     json
   }
@@ -27,7 +29,6 @@ const ITEM_FIELDS_EXTENDED = `
     description
     url
   }
-  techTags
 `;
 
 const COLLECTION_NAME = 'portfolioItemCollection'
@@ -69,7 +70,7 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
     }`,
     true,
   )
-
+  
   return extractProject(entry);
 }
 
@@ -107,5 +108,5 @@ export async function getSingleProject(
     preview,
   );
 
-  return { post: extractProject(singleEntry) }
+  return extractProject(singleEntry)
 }

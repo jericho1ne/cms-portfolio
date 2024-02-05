@@ -20,26 +20,28 @@ function Intro() {
       </h2>
       <div className="p-2 flex flex-row lg:flex-row gap-x-2 items-center">
         <div className="flex flex-col md:pl-2">
-          <a
+          <Link
             href={LINKEDIN_URL}
-            className="items-center rounded-md bg-slate-800 hover:bg-blue-700 text-white 
+            className="items-center rounded-md text-white
+            dark:bg-indigo-900 dark:text-indigo-100 
             font-bold tracking-tighter shadow-black hover:drop-shadow-sm
             transform hover:-translate-y-0.5 
             py-2 px-4 lg:px-3 duration-400 transition ease-out"
           >
             LinkedIn
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col md:pl-2">
-          <a
+          <Link
             href={GITHUB_URL}
-            className="items-center rounded-md bg-slate-800 hover:bg-blue-700 text-white 
+            className="items-center rounded-md text-white
+            dark:bg-indigo-900 dark:text-indigo-100 
             font-bold tracking-tighter shadow-black hover:drop-shadow-sm
             transform hover:-translate-y-0.5 
             py-2 px-4 lg:px-3 duration-400 transition ease-out"
           >
             Github
-          </a>
+          </Link>
         </div>
       </div>
     </section>

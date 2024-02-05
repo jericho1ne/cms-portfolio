@@ -39,4 +39,5 @@ Contentful `portfolioItem` schema
 
 
 ### What's next
-- Still aiming to clean up the mess that tailwind left behind.
+- Video embeds as part of Rich Text field
+- Clean up the mess that tailwind left behind.
