@@ -56,4 +56,5 @@ Contentful `portfolioItem` schema
 ### What's next
 - SEO stuff: How to edit robots.txt, how to set opengraph image
 - Video embeds as part of Rich Text field
-- Clean up the mess that tailwind left behind.
+- Add contentful webhooks to trigger Vercel rebuild on content updates
+- Backburner: clean up the mess that tailwind left behind
