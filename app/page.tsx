@@ -22,7 +22,7 @@ function Intro() {
         <div className="flex flex-col md:pl-2">
           <Link
             href={LINKEDIN_URL}
-            className="items-center rounded-md text-white
+            className="items-center rounded-md
             bg-indigo-100 text-indigo-900
             dark:bg-indigo-900 dark:text-indigo-100 
             font-bold tracking-tighter shadow-black hover:drop-shadow-sm
@@ -35,7 +35,7 @@ function Intro() {
         <div className="flex flex-col md:pl-2">
           <Link
             href={GITHUB_URL}
-            className="items-center rounded-md text-white
+            className="items-center rounded-md
             bg-indigo-100 text-indigo-900
             dark:bg-indigo-900 dark:text-indigo-100 
             font-bold tracking-tighter shadow-black hover:drop-shadow-sm

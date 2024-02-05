@@ -54,8 +54,8 @@ export default async function ProjectPage({
           </div>
         </div>
         
-         {/* External Project Link, if present */}
-         {project.externalUrl && ( 
+        {/* External Project Link, if present */}
+        {project.externalUrl && ( 
           <Link
             href={project.externalUrl}
             className="items-center rounded-md text-white
@@ -66,11 +66,7 @@ export default async function ProjectPage({
           >
             Project Demo
           </Link>
-          
-          // font-medium rounded-lg text-sm px-5 py-2.5 text-center
-          // <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Default</button>
-
-         )}
+        )}
         
         {/* Hero image */}
         <div className="mt-8 mb-8 md:mb-16 sm:mx-0">
