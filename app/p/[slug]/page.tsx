@@ -14,6 +14,24 @@ export async function generateStaticParams() {
   }));
 }
 
+function Video({url, title} : {url: string, title: string}) {
+  return (
+    <div className="border border-2 border-slate-700">
+      {/* <h4>{title}</h4> */}
+      <video autoPlay loop muted width="100%" height="auto" controls >
+        <source src={url} type="video/mp4" />
+        <track
+          src={url}
+          kind="subtitles"
+          label="English"
+        />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+  )
+}
+
 export default async function ProjectPage({
   params,
 }: {
@@ -48,11 +66,20 @@ export default async function ProjectPage({
         </div>
           
         {/* Project Description */}
-        <div className="mx-auto mb-4 md:mb-8">
+        <div className="mx-auto mb-2 md:mb-4">
           <div className="prose tracking-tight text-sm leading-6">
             { project.bodyContent && <Markdown content={project.bodyContent} /> }
           </div>
         </div>
+        
+        {project.demoVideo && (
+          <div className="mb-4 md:mb-8">
+            <Video 
+              title={project.demoVideo.title} 
+              url={project.demoVideo.url} 
+            />
+          </div>
+        )}
         
         {/* External Project Link, if present */}
         {project.externalUrl && ( 
@@ -72,7 +99,6 @@ export default async function ProjectPage({
         <div className="mt-8 mb-8 md:mb-16 sm:mx-0">
           <CoverImage title={project.title} url={project.heroImage.url} />
         </div>
-       
        
       </article>
     </div>

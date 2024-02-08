@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const ITEM_FIELDS = `
   slug
   title
@@ -26,6 +28,8 @@ const ITEM_FIELDS_EXTENDED = `
   }
   demoVideo {
     title
+    contentType
+    fileName
     description
     url
   }
@@ -109,4 +113,17 @@ export async function getSingleProject(
   );
 
   return extractProject(singleEntry)
+}
+
+export async function getMediaAsset (assetId: string, preview: boolean = false): Promise<any> {
+  const accessToken = preview
+    ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+    : process.env.CONTENTFUL_ACCESS_TOKEN
+    
+  const baseUrl = `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}`
+
+  const mediaAsset = await axios.get(`${baseUrl}/environments/master/assets/${assetId}?access_token=${accessToken}`)
+    .then(res => res.data.fields)
+    
+  return mediaAsset
 }

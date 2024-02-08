@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@contentful/rich-text-react-renderer':
     specifier: ^15.17.1
@@ -22,6 +26,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.15
     version: 10.4.15(postcss@8.4.31)
+  axios:
+    specifier: ^1.6.7
+    version: 1.6.7
   contentful-import:
     specifier: ^9.0.4
     version: 9.0.4(@babel/core@7.23.9)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.2)(eslint-plugin-promise@6.1.1)
