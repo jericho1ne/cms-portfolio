@@ -13,7 +13,7 @@ function Intro() {
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-8 md:mb-12">
     
       <div className="flex flex-col pr-4">
-        <h1 className="text-center md:text-left text-3xl md:text-4xl font-bold tracking-tighter leading-tight">
+        <h1 className="text-center md:text-left text-3xl md:text-4xl font-bold tracking-tight leading-tight">
           Mihai Peteu
         </h1>
         <h2 className="text-center md:text-left text-md pt-1">
@@ -27,7 +27,7 @@ function Intro() {
             className="items-center rounded-md
             bg-indigo-100 text-indigo-900
             dark:bg-indigo-900 dark:text-indigo-100 
-            font-bold tracking-tighter shadow-black hover:drop-shadow-sm
+            font-bold tracking-tight shadow-black hover:drop-shadow-sm
             transform hover:-translate-y-0.5 
             py-2 px-4 lg:px-3 duration-400 transition ease-out"
           >
@@ -40,7 +40,7 @@ function Intro() {
             className="items-center rounded-md
             bg-indigo-100 text-indigo-900
             dark:bg-indigo-900 dark:text-indigo-100 
-            font-bold tracking-tighter shadow-black hover:drop-shadow-sm
+            font-bold tracking-tight shadow-black hover:drop-shadow-sm
             transform hover:-translate-y-0.5 
             py-2 px-4 lg:px-3 duration-400 transition ease-out"
           >

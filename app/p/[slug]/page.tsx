@@ -42,13 +42,13 @@ export default async function ProjectPage({
   
   return (
     <div className="container mx-auto px-5">
-      <h2 className="text-xl md:text-xl font-bold tracking-tight md:tracking-tighter leading-tight mt-8 mb-8">
-        <Link href="/" className="cursor-pointer bg-slate-100 p-2 underline font-bold tracking-tighter">
+      <h2 className="text-xl md:text-xl font-bold tracking-tight md:tracking-tight leading-tight mt-8 mb-8">
+        <Link href="/" className="cursor-pointer bg-slate-100 p-2 underline font-bold tracking-tight">
           Home
         </Link>
       </h2>
       <article>
-        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tighter leading-tight md:leading-none mb-4 md:mb-8 md:text-left">
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight md:leading-none mb-4 md:mb-8 md:text-left">
           {project.title}
         </h1>
         
@@ -96,7 +96,7 @@ export default async function ProjectPage({
         )}
         
         {/* Hero image */}
-        <div className="mt-8 mb-8 md:mb-16 sm:mx-0">
+        <div className="max-w-2xl mt-8 mb-8 md:mb-16 sm:mx-0">
           <CoverImage title={project.title} url={project.heroImage.url} />
         </div>
        
