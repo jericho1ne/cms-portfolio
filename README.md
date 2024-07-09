@@ -52,7 +52,7 @@ Contentful `portfolioItem` schema
 
 #### Content model 
 
-![[./__assets/contentful-schema.png]]
+![./__assets/contentful-schema.png]
 
 
 ### What's next
