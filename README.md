@@ -1,6 +1,8 @@
 ### Portfolio
 A clone of the [Next.js + Contentful boiler plate](https://github.com/vercel/next.js/tree/canary/examples/cms-contentful), hosted on Vercel.
 
+### Live Demo
+https://www.mihaipet.eu
 
 ### Why
 The Vue starter project was preferable, but the React starter had less opininated visual styling and better typography.
@@ -50,7 +52,7 @@ Contentful `portfolioItem` schema
 
 #### Content model 
 
-![[./__assets/contentful-schema.png]]
+![Contenful Schema](./__assets/contentful-schema.png)
 
 
 ### What's next
