@@ -1,0 +1,80 @@
+{
+  "name": "Portfolio Item",
+  "description": "A portfolio project entry",
+  "displayField": "slug",
+  "fields": [
+    {
+      "id": "slug",
+      "name": "Slug",
+      "type": "Symbol",
+      "required": true,
+      "validations": [{ "unique": true }]
+    },
+    {
+      "id": "date",
+      "name": "Date",
+      "type": "Date",
+      "required": true
+    },
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "required": true
+    },
+    {
+      "id": "description",
+      "name": "Description",
+      "type": "Symbol",
+      "required": true
+    },
+    {
+      "id": "tags",
+      "name": "Tags",
+      "type": "Symbol",
+      "required": false,
+      "description": "Comma-separated list of technologies used (e.g. 'Vue, Nuxt, Contentful')"
+    },
+    {
+      "id": "bodyContent",
+      "name": "Body Content",
+      "type": "RichText",
+      "required": false
+    },
+    {
+      "id": "heroImage",
+      "name": "Hero Image",
+      "type": "Link",
+      "linkType": "Asset",
+      "required": true
+    },
+    {
+      "id": "imageGallery",
+      "name": "Image Gallery",
+      "type": "Array",
+      "required": false,
+      "items": {
+        "type": "Link",
+        "linkType": "Asset",
+        "validations": [{ "linkMimetypeGroup": ["image"] }]
+      }
+    },
+    {
+      "id": "demoVideo",
+      "name": "Demo Video",
+      "type": "Link",
+      "linkType": "Asset",
+      "required": false,
+      "validations": [
+        { "linkMimetypeGroup": ["video"] },
+        { "assetFileSize": { "max": 10485760 } }
+      ]
+    },
+    {
+      "id": "externalUrl",
+      "name": "External URL",
+      "type": "Symbol",
+      "required": false
+    }
+  ]
+}

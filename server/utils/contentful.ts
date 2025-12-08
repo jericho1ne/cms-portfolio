@@ -7,7 +7,7 @@ const ITEM_FIELDS = `
     description
     url
   }
-  techTags
+  tags
 `
 
 const ITEM_FIELDS_EXTENDED = `
@@ -15,7 +15,7 @@ const ITEM_FIELDS_EXTENDED = `
   title
   description
   externalUrl
-  techTags
+  tags
   bodyContent {
     json
   }

@@ -34,7 +34,7 @@ export interface Project {
   title: string
   description: string
   heroImage: HeroImage
-  techTags: string[]
+  tags: string
   date?: string
 }
 

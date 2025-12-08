@@ -30,9 +30,9 @@ useHead({
         </h1>
 
         <!-- Technology stack badges -->
-        <div v-if="project.techTags?.length" class="tech-tags">
+        <div v-if="project.tags" class="tech-tags">
           <span
-            v-for="(tag, index) in project.techTags"
+            v-for="(tag, index) in project.tags.split(',').map(t => t.trim())"
             :key="index"
             class="tech-tag"
           >
