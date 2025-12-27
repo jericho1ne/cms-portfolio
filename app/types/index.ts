@@ -38,8 +38,17 @@ export interface Project {
   date?: string
 }
 
+export interface GalleryImage {
+  title: string
+  description: string
+  url: string
+}
+
 export interface ProjectExtended extends Project {
   externalUrl?: string
   bodyContent?: BodyContent
+  imageGalleryCollection?: {
+    items: GalleryImage[]
+  }
   demoVideo?: DemoVideo
 }

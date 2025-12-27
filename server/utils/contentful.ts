@@ -24,6 +24,13 @@ const ITEM_FIELDS_EXTENDED = `
     description
     url
   }
+  imageGalleryCollection {
+    items {
+      title
+      description
+      url
+    }
+  }
   demoVideo {
     title
     contentType

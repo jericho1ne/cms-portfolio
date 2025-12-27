@@ -15,6 +15,7 @@ defineProps<Props>()
         :title="project.title"
         :slug="project.slug"
         :url="project.heroImage.url"
+        is-thumbnail
       />
     </div>
     <div class="project-card-content">

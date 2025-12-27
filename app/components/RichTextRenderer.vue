@@ -130,9 +130,7 @@ const RichTextAsset = defineComponent({
 </script>
 
 <template>
-  <div class="prose">
-    <component
-      :is="() => content.json.content.map((node, index) => renderNode(node, index))"
-    />
-  </div>
+  <component
+    :is="() => content.json.content.map((node, index) => renderNode(node, index))"
+  />
 </template>
