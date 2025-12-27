@@ -8,12 +8,13 @@ export default defineNuxtConfig({
   ],
 
   // Runtime config for environment variables
+  // Use NUXT_ prefix in .env files (e.g., NUXT_CONTENTFUL_SPACE_ID)
   runtimeConfig: {
-    contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
-    contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    contentfulPreviewAccessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
-    contentfulPreviewSecret: process.env.CONTENTFUL_PREVIEW_SECRET,
-    contentfulRevalidateSecret: process.env.CONTENTFUL_REVALIDATE_SECRET,
+    contentfulSpaceId: '',
+    contentfulAccessToken: '',
+    contentfulPreviewAccessToken: '',
+    contentfulPreviewSecret: '',
+    contentfulRevalidateSecret: '',
   },
 
   // Enable SSR

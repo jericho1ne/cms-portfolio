@@ -38,6 +38,12 @@ const COLLECTION_NAME = 'portfolioItemCollection'
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
   const config = useRuntimeConfig()
 
+  if (!config.contentfulSpaceId || !config.contentfulAccessToken) {
+    throw new Error(
+      'Missing Contentful configuration. Ensure CONTENTFUL_SPACE_ID and CONTENTFUL_ACCESS_TOKEN are set.'
+    )
+  }
+
   const response = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${config.contentfulSpaceId}`,
     {
@@ -53,6 +59,13 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
       body: JSON.stringify({ query })
     }
   )
+
+  if (!response.ok) {
+    const text = await response.text()
+    throw new Error(
+      `Contentful API error (${response.status}): ${text.substring(0, 200)}`
+    )
+  }
 
   return response.json()
 }
