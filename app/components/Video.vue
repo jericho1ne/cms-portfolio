@@ -20,3 +20,21 @@ defineProps<Props>()
     </video>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.video-wrapper {
+  border: 1px solid var(--color-gray-900);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
